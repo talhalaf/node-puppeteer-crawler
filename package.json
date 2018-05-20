@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "puppeteer-crawler",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "puppeteer": "^1.4.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
