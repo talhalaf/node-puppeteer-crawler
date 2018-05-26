@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title id="title"></title>
+</head>
+<style>
+
+</style>
+<body>
+<canvas id="MyCanvas" width="1330" height="2000" style="border:2px solid;" onclick="logPoint(event)"></canvas>
+<script>
+const PDFObject = {
+  "header": [
+    {
+      "Title": "General Information",
+      "ApiName": "GeneralInformation",
+      "FieldType": 13,
+      "Layout": {
+        "X": 110,
+        "Y": 150,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "bold 14px Arial"
+      },
+	  "value": "splitter",
+    },
+    {
+      "Title": "Account Name",
+      "WrntyFieldName": "Account Name",
+      "CustomField": false,
+      "ApiName": "AccountName",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 110,
+        "Y": 190,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "A Las Vegas Store 1"
+    },
+    {
+      "Title": "ID",
+      "WrntyFieldName": "ID",
+      "CustomField": false,
+      "ApiName": "WrntyID",
+      "FieldType": 2,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 190,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": 48659549
+    },
+    {
+      "Title": "Account External ID",
+      "WrntyFieldName": "Account External ID",
+      "CustomField": false,
+      "ApiName": "AccountExternalID",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 110,
+        "Y": 220,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "3962766"
+    },
+    {
+      "Title": "Action Time",
+      "WrntyFieldName": "Action Time",
+      "CustomField": false,
+      "ApiName": "ActionDateTime",
+      "FieldType": 6,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 220,
+        "Width": 1,
+        "Line_Number": 2
+      },
+      "value": "2018-05-11T14:28:43Z"
+    },
+    {
+      "Title": "Sales Rep Name",
+      "WrntyFieldName": "Sales Rep Name",
+      "CustomField": false,
+      "ApiName": "AgentName",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 245,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "Fashion Buyer"
+    },
+    {
+      "Title": "Account Information",
+      "WrntyFieldName": "",
+      "CustomField": false,
+      "ApiName": "AccountInformation",
+      "FieldType": 13,
+      "ColumnWidth": 2,
+      "Layout": {
+        "X": 110,
+        "Y": 300,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "bold 14px Arial"
+      },
+      "value": "splitter"
+    },
+    {
+      "Title": "Branch",
+      "WrntyFieldName": "Branch",
+      "CustomField": false,
+      "ApiName": "Branch",
+      "FieldType": 16,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 330,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "A Las Vegas Store 1"
+    },
+    {
+      "Title": "Bill to Name",
+      "WrntyFieldName": "Bill to Name",
+      "CustomField": false,
+      "ApiName": "BillToName",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 110,
+        "Y": 365,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": ""
+    },
+    {
+      "Title": "Ship to Name",
+      "WrntyFieldName": "Ship to Name",
+      "CustomField": false,
+      "ApiName": "ShipToName",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 365,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": ""
+    },
+    {
+      "Title": "Bill to Address",
+      "WrntyFieldName": "Bill to Address",
+      "CustomField": false,
+      "ApiName": "BillToAddress",
+      "FieldType": 14,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 110,
+        "Y": 390,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": {
+        "BillToStreet": "3355 South Las Vegas Boulevard",
+        "BillToCity": "Las Vegas",
+        "BillToZipCode": "89109",
+        "BillToState": "USA"
+      }
+    },
+    {
+      "Title": "Ship to Address",
+      "WrntyFieldName": "Ship to Address",
+      "CustomField": false,
+      "ApiName": "ShipToAddress",
+      "FieldType": 14,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 390,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": {
+        "ShipToStreet": "3355 South Las Vegas Boulevard",
+        "ShipToCity": "Las Vegas",
+        "ShipToZipCode": "89109",
+        "ShipToState": "USA"
+      }
+    },
+    {
+      "Title": "Bill to Phone",
+      "WrntyFieldName": "Bill to Phone",
+      "CustomField": false,
+      "ApiName": "BillToPhone",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 110,
+        "Y": 490,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "702-555-5555"
+    },
+    {
+      "Title": "Ship to Phone",
+      "WrntyFieldName": "Ship to Phone",
+      "CustomField": false,
+      "ApiName": "ShipToPhone",
+      "FieldType": 1,
+      "ColumnWidth": 1,
+      "Layout": {
+        "X": 720,
+        "Y": 490,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "702-555-5555"
+    },
+    {
+      "Title": "Order Information",
+      "WrntyFieldName": "",
+      "CustomField": false,
+      "ApiName": "OrderInformation",
+      "FieldType": 13,
+      "ColumnWidth": 2,
+      "Layout": {
+        "X": 110,
+        "Y": 545,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "bold 14px Arial"
+      },
+      "value": "splitter"
+    },
+    {
+      "Title": "Order Remark",
+      "WrntyFieldName": "Order Remark",
+      "CustomField": false,
+      "ApiName": "Remark",
+      "FieldType": 3,
+      "ColumnWidth": 2,
+      "Layout": {
+        "X": 110,
+        "Y": 580,
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial"
+      },
+      "value": "Please make sure to ship the order to client on time"
+    }
+  ],
+  "cart": [
+    {
+      "Title": "Image",
+      "WrntyFieldName": "Image",
+      "CustomField": false,
+      "ApiName": "Image",
+      "FieldType": 20,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/7/14818817_1_200x200.jpg",
+          "InternalID": 455944835
+        },
+        {
+          "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/0/14818070_1_200x200.jpg",
+          "InternalID": 455944836
+        },
+        {
+          "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/0/14818070_1_200x200.jpg",
+          "InternalID": 455944837
+        },
+        {
+          "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/0/14818070_1_200x200.jpg",
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Item Main Category Code",
+      "WrntyFieldName": "Item Main Category Code",
+      "CustomField": false,
+      "ApiName": "ItemMainCategoryCode",
+      "FieldType": 1,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": "MCR00100BLU44",
+          "InternalID": 455944835
+        },
+        {
+          "value": "HB1036",
+          "InternalID": 455944836
+        },
+        {
+          "value": "HB1036",
+          "InternalID": 455944837
+        },
+        {
+          "value": "HB1036",
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Item Main Category",
+      "WrntyFieldName": "Item Main Category",
+      "CustomField": false,
+      "ApiName": "ItemMainCategory",
+      "FieldType": 1,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": "NewWave",
+          "InternalID": 455944835
+        },
+        {
+          "value": "HandBags",
+          "InternalID": 455944836
+        },
+        {
+          "value": "HandBags",
+          "InternalID": 455944837
+        },
+        {
+          "value": "HandBags",
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Item Description",
+      "WrntyFieldName": "Item Description",
+      "CustomField": false,
+      "ApiName": "ItemName",
+      "FieldType": 1,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": "Shirt",
+          "InternalID": 455944835
+        },
+        {
+          "value": "Fashion",
+          "InternalID": 455944836
+        },
+        {
+          "value": "Fashion",
+          "InternalID": 455944837
+        },
+        {
+          "value": "Fashion",
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Item Price",
+      "WrntyFieldName": "Item Price",
+      "CustomField": false,
+      "ApiName": "ItemPrice",
+      "FieldType": 8,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": 45,
+          "InternalID": 455944835
+        },
+        {
+          "value": 44,
+          "InternalID": 455944836
+        },
+        {
+          "value": 44,
+          "InternalID": 455944837
+        },
+        {
+          "value": 44,
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Unit Quantity",
+      "WrntyFieldName": "Unit Quantity",
+      "CustomField": false,
+      "ApiName": "UnitsQuantity",
+      "FieldType": 7,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": 10,
+          "InternalID": 455944835
+        },
+        {
+          "value": 11,
+          "InternalID": 455944836
+        },
+        {
+          "value": 11,
+          "InternalID": 455944837
+        },
+        {
+          "value": 11,
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Unit Price After Discount",
+      "WrntyFieldName": "Unit Price After Discount",
+      "CustomField": false,
+      "ApiName": "UnitPriceAfterDiscount",
+      "FieldType": 8,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": 45,
+          "InternalID": 455944835
+        },
+        {
+          "value": 0,
+          "InternalID": 455944836
+        },
+        {
+          "value": 44,
+          "InternalID": 455944837
+        },
+        {
+          "value": 44,
+          "InternalID": 455944838
+        }
+      ]
+    },
+    {
+      "Title": "Total Unit Price After Discount",
+      "WrntyFieldName": "Total Unit Price After Discount",
+      "CustomField": false,
+      "ApiName": "TotalUnitsPriceAfterDiscount",
+      "FieldType": 8,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "values": [
+        {
+          "value": 450,
+          "InternalID": 455944835
+        },
+        {
+          "value": 0,
+          "InternalID": 455944836
+        },
+        {
+          "value": 484,
+          "InternalID": 455944837
+        },
+        {
+          "value": 484,
+          "InternalID": 455944838
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "Title": "Totals Box",
+      "WrntyFieldName": "Totals Box",
+      "CustomField": false,
+      "ApiName": "TotalsBox",
+      "FieldType": 23,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "value": {
+        "SubTotal": 2386,
+        "DiscountPercentage": 3,
+        "GrandTotal": 1375.46
+      }
+    },
+    {
+      "Title": "Signature",
+      "WrntyFieldName": "Signature",
+      "CustomField": false,
+      "ApiName": "Signature",
+      "FieldType": 25,
+      "ColumnWidth": 10,
+      "Layout": {
+        "X": 1,
+        "Y": 0,
+        "Width": 1,
+        "Line_Number": 0
+      },
+      "value": "Signature"
+    }
+  ],
+  "fieldsNotFound": [],
+  "CurrencySymbol": "USD"
+};
+
+  var canvas = document.getElementById("MyCanvas"),
+      ctx = canvas.getContext("2d");
+</script>
+<script>
+	let logPoint = (e) => {
+		let rect = canvas.getBoundingClientRect();
+		console.log({X: e.clientX - rect.left, Y: e.clientY - rect.top});
+	}
+  let printHeaderField = (field) => {
+  //console.log(field);
+		const VALUESPACE = 250;
+		  if (field.FieldType === 13){			//if is a splitter
+			ctx.fillStyle = 'rgb(241, 241, 242)';
+			ctx.fillRect((field.Layout.X-15),(field.Layout.Y-25),1140,35);	
+			console.log(field.Layout.X,field.Layout.X,1715,40);
+			console.log(field);
+			ctx.font = field.Layout.font;			
+			ctx.fillStyle = field.Layout.color;
+			ctx.textAlign = field.Layout.textAlign;
+			ctx.fillText(field.Title,field.Layout.X,field.Layout.Y);
+			}
+		  else	{		// 
+		  	ctx.font = field.Layout.font;	
+		  	ctx.fillStyle = field.Layout.color;
+			ctx.textAlign = field.Layout.textAlign;
+			ctx.fillText(field.Title,field.Layout.X,field.Layout.Y);
+			if ( field.FieldType === 14 ){		// if is a ShipToAddress/BillToAddress field
+				let pre = field.ApiName === 'ShipToAddress' ? 'Ship' : 'Bill';
+				field.value[pre+'ToStreet'] ? ctx.fillText(field.value[pre+'ToStreet'],field.Layout.X + VALUESPACE, field.Layout.Y ) : '';
+				field.value[pre+'ToCity'] ? ctx.fillText(field.value[pre+'ToCity'],field.Layout.X + VALUESPACE, field.Layout.Y + 25) : '';
+				field.value[pre+'ToZipCode'] ? ctx.fillText(field.value[pre+'ToZipCode'],field.Layout.X + VALUESPACE, field.Layout.Y + 50) : '';
+				field.value[pre+'ToState'] ? ctx.fillText(field.value[pre+'ToState'],field.Layout.X + VALUESPACE, field.Layout.Y + 75) : '';
+				field.value[pre+'ToCountry'] ? ctx.fillText(field.value[pre+'ToCountry'],field.Layout.X + VALUESPACE, field.Layout.Y + 100) : '';
+			}
+			else {
+				field.value ? ctx.fillText(field.value,field.Layout.X + VALUESPACE, field.Layout.Y ) : '';
+			}
+		  }
+	}
+	for (let i = 0 ; i < PDFObject.header.length ; i ++){
+		printHeaderField(PDFObject.header[i]);
+	}
+
+</script>
+</body>
+</html>
