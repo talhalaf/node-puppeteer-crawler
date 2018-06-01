@@ -167,7 +167,8 @@
         "BillToStreet": "3355 South Las Vegas Boulevard",
         "BillToCity": "Las Vegas",
         "BillToZipCode": "89109",
-        "BillToState": "USA"
+        "BillToState": "USA",
+        "BillToCountry": ""
       }
     },
     {
@@ -187,7 +188,8 @@
         "ShipToStreet": "3355 South Las Vegas Boulevard",
         "ShipToCity": "Las Vegas",
         "ShipToZipCode": "89109",
-        "ShipToState": "USA"
+        "ShipToState": "USA",
+        "ShipToCountry": ""
       }
     },
     {

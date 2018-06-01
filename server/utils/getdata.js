@@ -277,6 +277,7 @@ UIControls.footer = getUIControlFieldsV1(footerPath);
 let getPDFObject = async (transactionId,token) =>  {
     let PDFObject = await getPDFData(transactionId,token,UIControls);
     await fs.writeFileSync(path.join(__dirname ,'..',transactionId+'.json'),JSON.stringify(PDFObject,undefined,2));
+
     let JSfile = path.join(__dirname ,'..','template.js');
     let HTMLfile = path.join(__dirname , '..', 'template.html');
     let JSdata = fs.readFileSync(JSfile); //read existing JS template into data
@@ -284,8 +285,8 @@ let getPDFObject = async (transactionId,token) =>  {
     let newJSData = 'const PDFObject = ' + JSON.stringify(PDFObject,undefined,2) +';\n'+ JSdata;
     let newHTMLData = HTMLdata + `\n <script src="template${transactionId}.js"></script>`;
     let newJSPath = path.join(__dirname ,'..','/template'+transactionId+'.js');
-    let newHTMLPath = path.join(__dirname ,'..','/template'+transactionId+'.html')
-    let newPDFFilePath = path.join(__dirname ,'..','/template'+transactionId+'.pdf')
+    let newHTMLPath = path.join(__dirname ,'..','/template'+transactionId+'.html');
+    let newPDFFilePath = path.join(__dirname ,'..','/template'+transactionId+'.pdf');
     await fs.writeFileSync(newJSPath,newJSData);
     await fs.writeFileSync(newHTMLPath,newHTMLData);
     // or fs.appendFile(fd, data);

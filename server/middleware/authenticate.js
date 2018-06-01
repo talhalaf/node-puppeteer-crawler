@@ -22,6 +22,7 @@ let getToken = (auth) =>{
 }
 
 let authenticate = (req, res, next) => {
+  console.log("HI from authentication");
   // console.log(req);
   // fs.appendFileSync('./response2.txt',JSON.stringify(req,undefined,2));
   // console.log(req);
@@ -29,12 +30,15 @@ let authenticate = (req, res, next) => {
   getToken(auth).then(res=>{
     if (!res){
       return Promise.reject();
+      console.log("HI from authentication error123");
     }
     req.token = Buffer.from('TokenAuth:'+res.APIToken).toString('base64');
     // console.log(req.token);
+    console.log("HI from authentication success");
     next();
   }).catch(e=>{
     console.log(e);
+    console.log("HI from authentication error");
     res.status(401).send();
   })
 };

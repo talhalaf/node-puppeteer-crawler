@@ -167,7 +167,8 @@ const PDFObject = {
         "BillToStreet": "3355 South Las Vegas Boulevard",
         "BillToCity": "Las Vegas",
         "BillToZipCode": "89109",
-        "BillToState": "USA"
+        "BillToState": "USA",
+        "BillToCountry": ""
       }
     },
     {
@@ -187,7 +188,8 @@ const PDFObject = {
         "ShipToStreet": "3355 South Las Vegas Boulevard",
         "ShipToCity": "Las Vegas",
         "ShipToZipCode": "89109",
-        "ShipToState": "USA"
+        "ShipToState": "USA",
+        "ShipToCountry": ""
       }
     },
     {
@@ -641,23 +643,18 @@ function makeLayoutMatrix(UIControls){
   return matrix;
 }
 function getFieldValue(field){
-  if (field.ApiName === 'ShipToAddress' || field.ApiName === 'BillToAddress'){
-    var pre ='';
-    if (field.ApiName === 'ShipToAddress')
-      pre='Ship';
-    else {
-      pre="Bill";
-    }
-    var res = ` 
+  var pre = (field.ApiName === 'ShipToAddress' || field.ApiName === 'BillToAddress') ?
+            ((field.ApiName === 'ShipToAddress') ? 'Ship' : 'Bill') : undefined;
+  var res;
+  if (pre){
+    res = ` 
     ${field.value[pre+'ToStreet']} <br/>
     ${field.value[pre+'ToCity']}<br/>
     ${field.value[pre+'ToZipCode']}<br/>
     ${field.value[pre+'ToState']}<br/>
     ${field.value[pre+'ToCountry']}`;
-    return res;
   }
-  else
-    return field.value;
+  return res ? res : field.value;
 }
 function createHeaderColumn(field){
   // console.log(field);
@@ -758,11 +755,12 @@ function createCartRows(orderby){             //TODO: Order BY
   return res;
 }
 var totalQuantities;
+var TotalUnitsPriceAfterDiscount;
 function createFinalRowSums(){
   var res = '<tr class="final-row">';
   var colspan = 0;
   totalQuantities = PDFObject.cart.find(field => field.ApiName === 'UnitsQuantity').values.reduce((a,b) => a + b.value,0);
-  var totalUnitsPrice= PDFObject.cart.find(field => field.ApiName === 'TotalUnitsPriceAfterDiscount').values.reduce((a,b) => a + b.value,0);
+  TotalUnitsPriceAfterDiscount= PDFObject.cart.find(field => field.ApiName === 'TotalUnitsPriceAfterDiscount').values.reduce((a,b) => a + b.value,0);
   for (var i = 0 ; i <  PDFObject.cart.length ; i++){             //for every field in line
     if (PDFObject.cart[i].ApiName === 'UnitsQuantity' || PDFObject.cart[i].ApiName === 'TotalUnitsPriceAfterDiscount'){
       break;
@@ -775,7 +773,7 @@ function createFinalRowSums(){
       res = res + `<td> ${parseFloat(Math.round(totalQuantities * 100) / 100).toFixed(2)} </td>`;
     }
     else if (PDFObject.cart[i].ApiName === 'TotalUnitsPriceAfterDiscount') {
-      res = res + `<td> ${parseFloat(Math.round(totalUnitsPrice * 100) / 100).toFixed(2)} </td>`;
+      res = res + `<td> ${parseFloat(Math.round(TotalUnitsPriceAfterDiscount * 100) / 100).toFixed(2)} </td>`;
     }
     else {
       res = res + `<td> </td>`;
@@ -803,7 +801,7 @@ function totalBoxTemplate(){
           SubTotal 
       </div>
       <div class="col" style="text-align: left;">
-          ${PDFObject.CurrencySymbol === 'USD' ? '$' : ''}${parseFloat(Math.round(TotalsBox.value.SubTotal * 100) / 100).toFixed(2)}
+          ${PDFObject.CurrencySymbol === 'USD' ? '$' : ''}${parseFloat(Math.round(TotalUnitsPriceAfterDiscount * 100) / 100).toFixed(2)}
       </div>
     </div>
     <div class="row">
@@ -811,7 +809,7 @@ function totalBoxTemplate(){
         Discount (${TotalsBox.value.DiscountPercentage}%)
     </div>
     <div class="col" style="text-align: left;">
-          ${PDFObject.CurrencySymbol === 'USD' ? '$' : ''} ${parseFloat(Math.round((TotalsBox.value.SubTotal * TotalsBox.value.DiscountPercentage / 100) * 100) / 100).toFixed(2)}
+          ${PDFObject.CurrencySymbol === 'USD' ? '$' : ''} ${parseFloat(Math.round((TotalUnitsPriceAfterDiscount * TotalsBox.value.DiscountPercentage / 100) * 100) / 100).toFixed(2)}
     </div>
     </div>
       <div class="row" style="background-color:lightgray;">
