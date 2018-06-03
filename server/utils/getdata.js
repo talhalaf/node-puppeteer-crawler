@@ -236,7 +236,7 @@ let getPDFData = async (transactionId,token,UIControls) =>{
     return PDFObject;
 };
 let getPDFFile = async (path,newPDFFilePath) => {
-    puppeteer.launch().then(async browser => {
+    puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(async browser => {
         const page = await browser.newPage();
         page.setViewport({
             height:1024,
@@ -250,7 +250,7 @@ let getPDFFile = async (path,newPDFFilePath) => {
             format: 'A4',
             height: 1080,
             width:1920 
-        });
+        }).then();
         // await page.content().then(res=>{
         //   console.log(res);
         // });

@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const http = require('http');
 const express = require('express');
 const _ = require('lodash');
@@ -20,7 +21,9 @@ app.get('/PDF/:ActivityID',authenticate,(request,response) => {
         console.log("HI");
         // response.sendFile(path.join(__dirname,'..',path.win32.basename(`template${ActivityID}.html`)));
         result = res;
-        setTimeout(() => {response.sendFile(result.newPDFFilePath); },2000);
+        setTimeout(() => {
+            response.sendFile(result.newPDFFilePath); 
+        },5000);
     }).catch(e=>{
         console.log(e);
     });
