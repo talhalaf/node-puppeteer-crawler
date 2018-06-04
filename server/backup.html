@@ -5,12 +5,27 @@
 <head>
     <meta charset="utf-8">
     <title id="title"></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-<style>
 
-</style>
 <body>
-<canvas id="MyCanvas" width="1330" height="2000" style="border:2px solid;" onclick="logPoint(event)"></canvas>
+ <!-- onclick="logDocumentPoint(event)" -->
+<div id="main-container" style="width: 1280px; border:2px solid;">
+        <!--MAIN CONTAINER-->
+		<!--style="border:2px solid;"--> 
+		<canvas id="HeaderCanvas" width="1280" height="2000" style="border:2px solid;" onclick="logHeaderCanvasPoint(event,this.id)"></canvas>
+
+        <table class="table-bordered" style="table-layout: fixed;width: 90%;text-align: center;margin-left:5%;border-bottom-width: 0px;border-left-width: 0px;" id="table-cart">
+        </table>
+        <br/>
+		 <hr style="border: none; border-bottom: 5px solid lightgray; width:90%;">
+		 <canvas id="TotalsBoxCanvas" width="1280" height="600" style="border:2px solid;" onclick="logHeaderCanvasPoint(event, this.id)"></canvas>
+		 <hr style="border: none; border-bottom: 5px solid lightgray; width:90%;">
+		 <canvas id="FooterCanvas" width="1280" height="600" style="border:2px solid;" onclick="logHeaderCanvasPoint(event, this.id)"></canvas>
+    </div>
+
+
 <script>
 const PDFObject = {
   "header": [
@@ -19,11 +34,15 @@ const PDFObject = {
       "ApiName": "GeneralInformation",
       "FieldType": 13,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 150,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "bold 14px Arial"
+		"font" : "bold 14px Arial",
+		"valueSpace" : 250,
+		"valueColor" : "black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
 	  "value": "splitter",
     },
@@ -35,11 +54,15 @@ const PDFObject = {
       "FieldType": 1,
       "ColumnWidth": 1,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 190,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+	"valueFont" : "14px Arial"
       },
       "value": "A Las Vegas Store 1"
     },
@@ -55,7 +78,11 @@ const PDFObject = {
         "Y": 190,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "26px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": 48659549
     },
@@ -67,11 +94,15 @@ const PDFObject = {
       "FieldType": 1,
       "ColumnWidth": 1,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 220,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "3962766"
     },
@@ -85,8 +116,13 @@ const PDFObject = {
       "Layout": {
         "X": 720,
         "Y": 220,
-        "Width": 1,
-        "Line_Number": 2
+		"color": "black",
+		"textAlign": "left",
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "2018-05-11T14:28:43Z"
     },
@@ -102,7 +138,11 @@ const PDFObject = {
         "Y": 245,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "Fashion Buyer"
     },
@@ -114,11 +154,15 @@ const PDFObject = {
       "FieldType": 13,
       "ColumnWidth": 2,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 300,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "bold 14px Arial"
+		"font" : "bold 14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "splitter"
     },
@@ -134,7 +178,11 @@ const PDFObject = {
         "Y": 330,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "A Las Vegas Store 1"
     },
@@ -146,11 +194,15 @@ const PDFObject = {
       "FieldType": 1,
       "ColumnWidth": 1,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 365,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": ""
     },
@@ -166,7 +218,11 @@ const PDFObject = {
         "Y": 365,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": ""
     },
@@ -178,11 +234,15 @@ const PDFObject = {
       "FieldType": 14,
       "ColumnWidth": 1,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 390,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": {
         "BillToStreet": "3355 South Las Vegas Boulevard",
@@ -203,7 +263,11 @@ const PDFObject = {
         "Y": 390,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": {
         "ShipToStreet": "3355 South Las Vegas Boulevard",
@@ -220,11 +284,15 @@ const PDFObject = {
       "FieldType": 1,
       "ColumnWidth": 1,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 490,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "702-555-5555"
     },
@@ -240,7 +308,11 @@ const PDFObject = {
         "Y": 490,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "702-555-5555"
     },
@@ -252,11 +324,15 @@ const PDFObject = {
       "FieldType": 13,
       "ColumnWidth": 2,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 545,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "bold 14px Arial"
+		"font" : "bold 14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "splitter"
     },
@@ -268,11 +344,15 @@ const PDFObject = {
       "FieldType": 3,
       "ColumnWidth": 2,
       "Layout": {
-        "X": 110,
+        "X": 80,
         "Y": 580,
 		"color": "black",
 		"textAlign": "left",
-		"font" : "14px Arial"
+		"font" : "14px Arial",
+		"valueSpace": 250,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
       "value": "Please make sure to ship the order to client on time"
     }
@@ -535,26 +615,63 @@ const PDFObject = {
       ]
     }
   ],
-  "footer": [
-    {
-      "Title": "Totals Box",
-      "WrntyFieldName": "Totals Box",
+  "totalsbox" : [
+	{
+      "Title": "Sub Total",
       "CustomField": false,
-      "ApiName": "TotalsBox",
+      "ApiName": "SubTotal",
       "FieldType": 23,
       "ColumnWidth": 10,
-      "Layout": {
-        "X": 0,
-        "Y": 0,
-        "Width": 1,
-        "Line_Number": 0
+	  "Layout": {
+        "X": 1000,
+        "Y": 45,
+		"color": "black",
+		"textAlign": "right",
+		"font" : "14px Arial",
+		"valueSpace": 20,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
       },
-      "value": {
-        "SubTotal": 2386,
-        "DiscountPercentage": 3,
-        "GrandTotal": 1375.46
-      }
-    },
+      "value": 2386
+	},{
+      "Title": "Discount",
+      "CustomField": false,
+      "ApiName": "DiscountPercentage",
+      "FieldType": 23,
+      "ColumnWidth": 10,
+	  "Layout": {
+        "X": 1000,
+        "Y": 65,
+		"color": "black",
+		"textAlign": "right",
+		"font" : "14px Arial",
+		"valueSpace": 20,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "14px Arial"
+      },
+      "value": 3
+	},{
+      "Title": "Totals",
+      "CustomField": false,
+      "ApiName": "GrandTotal",
+      "FieldType": 23,
+      "ColumnWidth": 10,
+	  "Layout": {
+        "X": 1000,
+        "Y": 90,
+		"color": "black",
+		"textAlign": "right",
+		"font" : "bold 14px Arial",
+		"valueSpace": 20,
+		"valueColor":"black",
+		"valueTextAlign": "left",
+		"valueFont" : "bold 14px Arial"
+      },
+      "value": 1375.46
+	}],
+  "footer": [
     {
       "Title": "Signature",
       "WrntyFieldName": "Signature",
@@ -575,49 +692,163 @@ const PDFObject = {
   "CurrencySymbol": "USD"
 };
 
-  var canvas = document.getElementById("MyCanvas"),
-      ctx = canvas.getContext("2d");
+
 </script>
 <script>
-	let logPoint = (e) => {
-		let rect = canvas.getBoundingClientRect();
-		console.log({X: e.clientX - rect.left, Y: e.clientY - rect.top});
+    /*-------------PRINTING CART FUNCTIONS---------------------*/
+	let createCartHeader = () => {
+		var res = `<thead>
+					<tr>`;
+		for(var i = 0 ; i < PDFObject.cart.length ; i++){
+			res = res + 
+					`<th style="background-color: rgb(241, 241, 242);text-align: center;">
+						 <h7>
+						 ${PDFObject.cart[i].Title}
+						 </h7>
+					</th>`
+		}
+			res = res +`</tr>
+				</thead>`
+		return res;
 	}
-  let printHeaderField = (field) => {
-  //console.log(field);
-		const VALUESPACE = 250;
+	let createCartRows = (orderby) => {             //TODO: Order BY
+	  var res = '';
+
+	  for (var i = 0 ; i < PDFObject.cart[0].values.length; i++){       //for every line in cart
+		res = res + '<tr>';
+		for (var j = 0 ; j <  PDFObject.cart.length ; j++){             //for every field in line
+		  res = res + `<td style="cart-line"> ${getCartFieldValue(PDFObject.cart[j],i)} </td>`;
+		}
+		res = res + '</tr>';
+	  }
+	  res = res + createFinalRowSums();                   // create row for UnitsQuantity and TotalUnitsPriceAfterDiscount
+	  return res;
+	}
+	let getCartFieldValue = (cartField,i) => {
+	  var res = '';
+	  // console.log("cartField",cartField,"I",i);
+	  if (cartField.FieldType===20)   //IMAGE
+		res = `<img style="max-height:100px; max-width:100px; height:auto; width:auto;" src="${cartField.values[i].value}">`;
+	  else {                           //Regular value
+		if (typeof cartField.values[i].value === "number"){
+		  res = parseFloat(Math.round(cartField.values[i].value * 100) / 100).toFixed(2);
+		}
+		else
+		  res = cartField.values[i].value;
+	  }
+	  return res;
+	}
+	let cartTemplate = () => {
+		var res = createCartHeader();
+		res = res + createCartRows();
+		return res;
+	}
+	let createFinalRowSums = () => {
+	  var res = '<tr class="final-row">';
+	  var colspan = 0;
+	  totalQuantities = PDFObject.cart.find(field => field.ApiName === 'UnitsQuantity').values.reduce((a,b) => a + b.value,0);
+	  var totalUnitsPrice= PDFObject.cart.find(field => field.ApiName === 'TotalUnitsPriceAfterDiscount').values.reduce((a,b) => a + b.value,0);
+	  for (var i = 0 ; i <  PDFObject.cart.length ; i++){             //for every field in line
+		if (PDFObject.cart[i].ApiName === 'UnitsQuantity' || PDFObject.cart[i].ApiName === 'TotalUnitsPriceAfterDiscount'){
+		  break;
+		}
+		colspan++;
+	  }
+	  res = res + `<td colspan=${colspan} style="border-bottom-width:  0px;border-left-width: 0px;"></td>`;
+	  for(var i = colspan ; i < PDFObject.cart.length ; i++){
+		if (PDFObject.cart[i].ApiName === 'UnitsQuantity'){
+		  res = res + `<td> ${parseFloat(Math.round(totalQuantities * 100) / 100).toFixed(2)} </td>`;
+		}
+		else if (PDFObject.cart[i].ApiName === 'TotalUnitsPriceAfterDiscount') {
+		  res = res + `<td> ${parseFloat(Math.round(totalUnitsPrice * 100) / 100).toFixed(2)} </td>`;
+		}
+		else {
+		  res = res + `<td style="border-bottom-width: 0px;"> </td>`;
+		}
+	  }
+	  res = res + '</tr>';
+	  return res;
+	}
+	/*-------------END - PRINTING CART FUNCTIONS--------------*/
+	let logHeaderCanvasPoint = (e,id) => {
+		let rect = document.getElementById(id).getBoundingClientRect();
+		console.log('Header Canvas:',{X: e.clientX - rect.left, Y: e.clientY - rect.top, ID: id});
+	}
+	
+
+	let printHeaderField = (field,Context) => {
+	//console.log(field);
+		let VALUESPACE = field.Layout.valueSpace;
 		  if (field.FieldType === 13){			//if is a splitter
-			ctx.fillStyle = 'rgb(241, 241, 242)';
-			ctx.fillRect((field.Layout.X-15),(field.Layout.Y-25),1140,35);	
-			console.log(field.Layout.X,field.Layout.X,1715,40);
-			console.log(field);
-			ctx.font = field.Layout.font;			
-			ctx.fillStyle = field.Layout.color;
-			ctx.textAlign = field.Layout.textAlign;
-			ctx.fillText(field.Title,field.Layout.X,field.Layout.Y);
+			Context.fillStyle = 'rgb(241, 241, 242)';
+			Context.fillRect((field.Layout.X-15),(field.Layout.Y-25),1140,35);	
+			Context.font = field.Layout.font;			
+			Context.fillStyle = field.Layout.color;
+			Context.textAlign = field.Layout.textAlign;
+			Context.fillText(field.Title,field.Layout.X,field.Layout.Y);
 			}
 		  else	{		// 
-		  	ctx.font = field.Layout.font;	
-		  	ctx.fillStyle = field.Layout.color;
-			ctx.textAlign = field.Layout.textAlign;
-			ctx.fillText(field.Title,field.Layout.X,field.Layout.Y);
+		  
+		  	Context.font = field.Layout.font;	
+		  	Context.fillStyle = field.Layout.color;
+			Context.textAlign = field.Layout.textAlign;
+			Context.fillText(field.Title,field.Layout.X,field.Layout.Y);
+			
+			Context.font = field.Layout.valueFont;		  	
+			Context.fillStyle = field.Layout.valueColor;
+			Context.textAlign = field.Layout.valueTextAlign;
 			if ( field.FieldType === 14 ){		// if is a ShipToAddress/BillToAddress field
+				let heightBetweenValues = 25;
+				let i = 0;
 				let pre = field.ApiName === 'ShipToAddress' ? 'Ship' : 'Bill';
-				field.value[pre+'ToStreet'] ? ctx.fillText(field.value[pre+'ToStreet'],field.Layout.X + VALUESPACE, field.Layout.Y ) : '';
-				field.value[pre+'ToCity'] ? ctx.fillText(field.value[pre+'ToCity'],field.Layout.X + VALUESPACE, field.Layout.Y + 25) : '';
-				field.value[pre+'ToZipCode'] ? ctx.fillText(field.value[pre+'ToZipCode'],field.Layout.X + VALUESPACE, field.Layout.Y + 50) : '';
-				field.value[pre+'ToState'] ? ctx.fillText(field.value[pre+'ToState'],field.Layout.X + VALUESPACE, field.Layout.Y + 75) : '';
-				field.value[pre+'ToCountry'] ? ctx.fillText(field.value[pre+'ToCountry'],field.Layout.X + VALUESPACE, field.Layout.Y + 100) : '';
+				field.value[pre+'ToStreet'] ? Context.fillText(field.value[pre+'ToStreet'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+				field.value[pre+'ToCity'] ? Context.fillText(field.value[pre+'ToCity'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+				field.value[pre+'ToZipCode'] ? Context.fillText(field.value[pre+'ToZipCode'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+				field.value[pre+'ToState'] ? Context.fillText(field.value[pre+'ToState'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+				field.value[pre+'ToCountry'] ? Context.fillText(field.value[pre+'ToCountry'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
 			}
 			else {
-				field.value ? ctx.fillText(field.value,field.Layout.X + VALUESPACE, field.Layout.Y ) : '';
+				field.value ? Context.fillText(field.value,field.Layout.X + VALUESPACE, field.Layout.Y ) : '';
 			}
 		  }
 	}
-	for (let i = 0 ; i < PDFObject.header.length ; i ++){
-		printHeaderField(PDFObject.header[i]);
+	/**
+	* Resizes the canvas to match the max UIControls fields' Layout.Y attribute.
+	* @param {UIControls} UIControls - Array of fields that respresents the fields and positions.
+	* @param {HTMLCanvasElement} canvas - The canvas.
+	* @param {HTMLCanvasContext} context - The canvas context.
+	*/
+	let resizeCanvas = (UIControls, canvas, context) => {
+		let marginBottom = 25;
+		let newCanvasHeight = Math.max(...UIControls.map(field => field.Layout.Y));
+		var inMemCanvas = document.createElement('canvas');
+		var inMemCtx = inMemCanvas.getContext('2d');
+		inMemCanvas.width = canvas.width;
+		inMemCanvas.height = canvas.height;
+		inMemCtx.drawImage(canvas, 0, 0);
+		canvas.height = newCanvasHeight + marginBottom;
+		context.drawImage(inMemCanvas, 0, 0);
 	}
-
+	
+	/*---------------------MAIN-----------------------*/
+	var headerCanvas = document.getElementById("HeaderCanvas"),
+	headerContext = headerCanvas.getContext("2d"),
+	totalsBoxCanvas = document.getElementById("TotalsBoxCanvas"),
+	totalsBoxContext = totalsBoxCanvas.getContext("2d");
+	FooterCanvas = document.getElementById("FooterCanvas"),
+	FooterContext = FooterCanvas.getContext("2d");
+	for (let i = 0 ; i < PDFObject.header.length ; i ++){
+		printHeaderField(PDFObject.header[i],headerContext);
+	}
+	resizeCanvas(PDFObject.header, headerCanvas, headerContext);
+	document.getElementById("table-cart").innerHTML=`${cartTemplate()}`;
+	for (let i = 0 ; i < PDFObject.totalsbox.length ; i ++){
+		printHeaderField(PDFObject.totalsbox[i],totalsBoxContext);
+	}
+	resizeCanvas(PDFObject.totalsbox,totalsBoxCanvas,totalsBoxContext);
+	
+	/*---------------------END-MAIN-------------------*/
+	
 </script>
 </body>
 </html>

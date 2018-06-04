@@ -25,7 +25,8 @@ app.get('/PDF/:ActivityID',authenticate,(request,response) => {
             response.sendFile(result.newPDFFilePath); 
         },5000);
     }).catch(e=>{
-        console.log(e);
+        console.log("error creating PDF:",e);
+        response.sendFile(publicPath+'/404.html');
     });
 })
 //48659549

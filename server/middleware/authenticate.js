@@ -1,8 +1,11 @@
-var request = require('request');
-var fs = require('fs');
+const path = require('path');
+const request = require('request');
+const fs = require('fs');
+
+const publicPath = path.join(__dirname,'..','..',path.win32.basename('/public'));
 
 let getToken = (auth) =>{
-  // console.log(auth);
+  console.log("getting token");
   return new Promise((resolve,reject)=>{ 
     // let Base64EncodedCredentials = Buffer.from(email+':'+password).toString('base64');
     request({
@@ -15,31 +18,29 @@ let getToken = (auth) =>{
     },(error,response,body)=>{
       if(error)
        reject(error);
-      //  console.log(body);
       resolve(body);
    });
   });
 }
 
 let authenticate = (req, res, next) => {
-  console.log("HI from authentication");
-  // console.log(req);
-  // fs.appendFileSync('./response2.txt',JSON.stringify(req,undefined,2));
-  // console.log(req);
+  console.log("authenticating...");
+
+  //extract auth from URL
   let auth = req.query.auth;
+
   getToken(auth).then(res=>{
-    if (!res){
-      return Promise.reject();
-      console.log("HI from authentication error123");
+    console.log("resolving auth result");
+    if (!res || res.CompanyID === 0){
+      return Promise.reject("no result or no company ID - authentication error");
     }
     req.token = Buffer.from('TokenAuth:'+res.APIToken).toString('base64');
     // console.log(req.token);
-    console.log("HI from authentication success");
+    console.log("authentication success");
     next();
   }).catch(e=>{
-    console.log(e);
-    console.log("HI from authentication error");
-    res.status(401).send();
+    console.log(e, 'Sending 401.html');
+    res.status(401).sendFile(publicPath+'/401.html');
   })
 };
 

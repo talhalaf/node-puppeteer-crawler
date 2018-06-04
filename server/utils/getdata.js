@@ -16,8 +16,9 @@ let getTransactionData = (transactionId,token) => {
                 'X-Pepperi-ConsumerKey':'LkOCYs3cYPGqnA22TyfNO8qfotJkEL5c'
             }
         },(error,response,body)=>{
-           if(error)
-            reject(error);
+           if(error || body.fault){
+                reject(body.fault.faultstring);
+           }
            resolve(body);
         });
     });
@@ -90,6 +91,8 @@ let getPDFData = async (transactionId,token,UIControls) =>{
     let PDFObject = {};
 
     let transactionData = await getTransactionData(transactionId,token);
+    if (!transactionData)
+        reject("bla bla");
     let lines = await getTransactionLines(transactionId,token);
     // let relevantItemData = await getItemsRelevantData(lines);
     
