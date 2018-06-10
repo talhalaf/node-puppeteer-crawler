@@ -1,0 +1,855 @@
+<script>
+    const PDFObject = {
+      "header": [
+        {
+          "Title": "General Information",
+          "ApiName": "GeneralInformation",
+          "FieldType": 13,
+          "Layout": {
+            "X": 80,
+            "Y": 150,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "bold 14px Arial",
+        "valueSpace" : 250,
+        "valueColor" : "black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+        "value": "splitter",
+        },
+        {
+          "Title": "Account Name",
+          "WrntyFieldName": "Account Name",
+          "CustomField": false,
+          "ApiName": "AccountName",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 80,
+            "Y": 190,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+      "valueFont" : "14px Arial"
+          },
+          "value": "A Las Vegas Store 1"
+        },
+        {
+          "Title": "ID",
+          "WrntyFieldName": "ID",
+          "CustomField": false,
+          "ApiName": "WrntyID",
+          "FieldType": 2,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 190,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "26px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": 48659549
+        },
+        {
+          "Title": "Account External ID",
+          "WrntyFieldName": "Account External ID",
+          "CustomField": false,
+          "ApiName": "AccountExternalID",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 80,
+            "Y": 220,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "3962766"
+        },
+        {
+          "Title": "Action Time",
+          "WrntyFieldName": "Action Time",
+          "CustomField": false,
+          "ApiName": "ActionDateTime",
+          "FieldType": 6,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 220,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "2018-05-11T14:28:43Z"
+        },
+        {
+          "Title": "Sales Rep Name",
+          "WrntyFieldName": "Sales Rep Name",
+          "CustomField": false,
+          "ApiName": "AgentName",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 245,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "Fashion Buyer"
+        },
+        {
+          "Title": "Account Information",
+          "WrntyFieldName": "",
+          "CustomField": false,
+          "ApiName": "AccountInformation",
+          "FieldType": 13,
+          "ColumnWidth": 2,
+          "Layout": {
+            "X": 80,
+            "Y": 300,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "bold 14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "splitter"
+        },
+        {
+          "Title": "Branch",
+          "WrntyFieldName": "Branch",
+          "CustomField": false,
+          "ApiName": "Branch",
+          "FieldType": 16,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 330,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "A Las Vegas Store 1"
+        },
+        {
+          "Title": "Bill to Name",
+          "WrntyFieldName": "Bill to Name",
+          "CustomField": false,
+          "ApiName": "BillToName",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 80,
+            "Y": 365,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": ""
+        },
+        {
+          "Title": "Ship to Name",
+          "WrntyFieldName": "Ship to Name",
+          "CustomField": false,
+          "ApiName": "ShipToName",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 365,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": ""
+        },
+        {
+          "Title": "Bill to Address",
+          "WrntyFieldName": "Bill to Address",
+          "CustomField": false,
+          "ApiName": "BillToAddress",
+          "FieldType": 14,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 80,
+            "Y": 390,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": {
+            "BillToStreet": "3355 South Las Vegas Boulevard",
+            "BillToCity": "Las Vegas",
+            "BillToZipCode": "89109",
+            "BillToState": "USA"
+          }
+        },
+        {
+          "Title": "Ship to Address",
+          "WrntyFieldName": "Ship to Address",
+          "CustomField": false,
+          "ApiName": "ShipToAddress",
+          "FieldType": 14,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 390,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": {
+            "ShipToStreet": "3355 South Las Vegas Boulevard",
+            "ShipToCity": "Las Vegas",
+            "ShipToZipCode": "89109",
+            "ShipToState": "USA"
+          }
+        },
+        {
+          "Title": "Bill to Phone",
+          "WrntyFieldName": "Bill to Phone",
+          "CustomField": false,
+          "ApiName": "BillToPhone",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 80,
+            "Y": 490,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "702-555-5555"
+        },
+        {
+          "Title": "Ship to Phone",
+          "WrntyFieldName": "Ship to Phone",
+          "CustomField": false,
+          "ApiName": "ShipToPhone",
+          "FieldType": 1,
+          "ColumnWidth": 1,
+          "Layout": {
+            "X": 720,
+            "Y": 490,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "702-555-5555"
+        },
+        {
+          "Title": "Order Information",
+          "WrntyFieldName": "",
+          "CustomField": false,
+          "ApiName": "OrderInformation",
+          "FieldType": 13,
+          "ColumnWidth": 2,
+          "Layout": {
+            "X": 80,
+            "Y": 545,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "bold 14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "splitter"
+        },
+        {
+          "Title": "Order Remark",
+          "WrntyFieldName": "Order Remark",
+          "CustomField": false,
+          "ApiName": "Remark",
+          "FieldType": 3,
+          "ColumnWidth": 2,
+          "Layout": {
+            "X": 80,
+            "Y": 580,
+        "color": "black",
+        "textAlign": "left",
+        "font" : "14px Arial",
+        "valueSpace": 250,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": "Please make sure to ship the order to client on time"
+        }
+      ],
+      "cart": [
+        {
+          "Title": "Image",
+          "WrntyFieldName": "Image",
+          "CustomField": false,
+          "ApiName": "Image",
+          "FieldType": 20,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/7/14818817_1_200x200.jpg",
+              "InternalID": 455944835
+            },
+            {
+              "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/0/14818070_1_200x200.jpg",
+              "InternalID": 455944836
+            },
+            {
+              "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/0/14818070_1_200x200.jpg",
+              "InternalID": 455944837
+            },
+            {
+              "value": "https://s3-us-west-2.amazonaws.com/pepperi-storage-production/WrntyImages/3704323/PortfolioItems/0/14818070_1_200x200.jpg",
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Item Main Category Code",
+          "WrntyFieldName": "Item Main Category Code",
+          "CustomField": false,
+          "ApiName": "ItemMainCategoryCode",
+          "FieldType": 1,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": "MCR00100BLU44",
+              "InternalID": 455944835
+            },
+            {
+              "value": "HB1036",
+              "InternalID": 455944836
+            },
+            {
+              "value": "HB1036",
+              "InternalID": 455944837
+            },
+            {
+              "value": "HB1036",
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Item Main Category",
+          "WrntyFieldName": "Item Main Category",
+          "CustomField": false,
+          "ApiName": "ItemMainCategory",
+          "FieldType": 1,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": "NewWave",
+              "InternalID": 455944835
+            },
+            {
+              "value": "HandBags",
+              "InternalID": 455944836
+            },
+            {
+              "value": "HandBags",
+              "InternalID": 455944837
+            },
+            {
+              "value": "HandBags",
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Item Description",
+          "WrntyFieldName": "Item Description",
+          "CustomField": false,
+          "ApiName": "ItemName",
+          "FieldType": 1,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": "Shirt",
+              "InternalID": 455944835
+            },
+            {
+              "value": "Fashion",
+              "InternalID": 455944836
+            },
+            {
+              "value": "Fashion",
+              "InternalID": 455944837
+            },
+            {
+              "value": "Fashion",
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Item Price",
+          "WrntyFieldName": "Item Price",
+          "CustomField": false,
+          "ApiName": "ItemPrice",
+          "FieldType": 8,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": 45,
+              "InternalID": 455944835
+            },
+            {
+              "value": 44,
+              "InternalID": 455944836
+            },
+            {
+              "value": 44,
+              "InternalID": 455944837
+            },
+            {
+              "value": 44,
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Unit Quantity",
+          "WrntyFieldName": "Unit Quantity",
+          "CustomField": false,
+          "ApiName": "UnitsQuantity",
+          "FieldType": 7,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": 10,
+              "InternalID": 455944835
+            },
+            {
+              "value": 11,
+              "InternalID": 455944836
+            },
+            {
+              "value": 11,
+              "InternalID": 455944837
+            },
+            {
+              "value": 11,
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Unit Price After Discount",
+          "WrntyFieldName": "Unit Price After Discount",
+          "CustomField": false,
+          "ApiName": "UnitPriceAfterDiscount",
+          "FieldType": 8,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": 45,
+              "InternalID": 455944835
+            },
+            {
+              "value": 0,
+              "InternalID": 455944836
+            },
+            {
+              "value": 44,
+              "InternalID": 455944837
+            },
+            {
+              "value": 44,
+              "InternalID": 455944838
+            }
+          ]
+        },
+        {
+          "Title": "Total Unit Price After Discount",
+          "WrntyFieldName": "Total Unit Price After Discount",
+          "CustomField": false,
+          "ApiName": "TotalUnitsPriceAfterDiscount",
+          "FieldType": 8,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 0,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "values": [
+            {
+              "value": 450,
+              "InternalID": 455944835
+            },
+            {
+              "value": 0,
+              "InternalID": 455944836
+            },
+            {
+              "value": 484,
+              "InternalID": 455944837
+            },
+            {
+              "value": 484,
+              "InternalID": 455944838
+            }
+          ]
+        }
+      ],
+      "totalsbox" : [
+      {
+          "Title": "Sub Total",
+          "CustomField": false,
+          "ApiName": "SubTotal",
+          "FieldType": 23,
+          "ColumnWidth": 10,
+        "Layout": {
+            "X": 1000,
+            "Y": 45,
+        "color": "black",
+        "textAlign": "right",
+        "font" : "14px Arial",
+        "valueSpace": 20,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": 2386
+      },{
+          "Title": "Discount",
+          "CustomField": false,
+          "ApiName": "DiscountPercentage",
+          "FieldType": 23,
+          "ColumnWidth": 10,
+        "Layout": {
+            "X": 1000,
+            "Y": 65,
+        "color": "black",
+        "textAlign": "right",
+        "font" : "14px Arial",
+        "valueSpace": 20,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "14px Arial"
+          },
+          "value": 3
+      },{
+          "Title": "Totals",
+          "CustomField": false,
+          "ApiName": "GrandTotal",
+          "FieldType": 23,
+          "ColumnWidth": 10,
+        "Layout": {
+            "X": 1000,
+            "Y": 90,
+        "color": "black",
+        "textAlign": "right",
+        "font" : "bold 14px Arial",
+        "valueSpace": 20,
+        "valueColor":"black",
+        "valueTextAlign": "left",
+        "valueFont" : "bold 14px Arial"
+          },
+          "value": 1375.46
+      }],
+      "footer": [
+        {
+          "Title": "Signature",
+          "WrntyFieldName": "Signature",
+          "CustomField": false,
+          "ApiName": "Signature",
+          "FieldType": 25,
+          "ColumnWidth": 10,
+          "Layout": {
+            "X": 1,
+            "Y": 0,
+            "Width": 1,
+            "Line_Number": 0
+          },
+          "value": "Signature"
+        }
+      ],
+      "fieldsNotFound": [],
+      "CurrencySymbol": "USD"
+    };
+    
+    
+    </script>
+  <!DOCTYPE html>
+  
+  <html>
+  
+  <head>
+      <meta charset="utf-8">
+      <title id="title"></title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  
+  <body>
+   <!-- onclick="logDocumentPoint(event)" -->
+  <div id="main-container" style="width: 1280px; border:2px solid;">
+          <!--MAIN CONTAINER-->
+          <!--style="border:2px solid;"--> 
+          <canvas id="HeaderCanvas" width="1280" height="2000" style="border:2px solid;" onclick="logHeaderCanvasPoint(event,this.id)"></canvas>
+  
+          <table class="table-bordered" style="table-layout: fixed;width: 90%;text-align: center;margin-left:5%;border-bottom-width: 0px;border-left-width: 0px;" id="table-cart">
+          </table>
+          <br/>
+           <hr style="border: none; border-bottom: 5px solid lightgray; width:90%;">
+           <canvas id="TotalsBoxCanvas" width="1280" height="600" style="border:2px solid;" onclick="logHeaderCanvasPoint(event, this.id)"></canvas>
+           <hr style="border: none; border-bottom: 5px solid lightgray; width:90%;">
+           <canvas id="FooterCanvas" width="1280" height="600" style="border:2px solid;" onclick="logHeaderCanvasPoint(event, this.id)"></canvas>
+      </div>
+  
+  
+  
+  <script>
+      /*-------------PRINTING CART FUNCTIONS---------------------*/
+      let createCartHeader = () => {
+          var res = `<thead>
+                      <tr>`;
+          for(var i = 0 ; i < PDFObject.cart.length ; i++){
+              res = res + 
+                      `<th style="background-color: rgb(241, 241, 242);text-align: center;">
+                           <h7>
+                           ${PDFObject.cart[i].Title}
+                           </h7>
+                      </th>`
+          }
+              res = res +`</tr>
+                  </thead>`
+          return res;
+      }
+      let createCartRows = (orderby) => {             //TODO: Order BY
+        var res = '';
+  
+        for (var i = 0 ; i < PDFObject.cart[0].values.length; i++){       //for every line in cart
+          res = res + '<tr>';
+          for (var j = 0 ; j <  PDFObject.cart.length ; j++){             //for every field in line
+            res = res + `<td style="cart-line"> ${getCartFieldValue(PDFObject.cart[j],i)} </td>`;
+          }
+          res = res + '</tr>';
+        }
+        res = res + createFinalRowSums();                   // create row for UnitsQuantity and TotalUnitsPriceAfterDiscount
+        return res;
+      }
+      let getCartFieldValue = (cartField,i) => {
+        var res = '';
+        // console.log("cartField",cartField,"I",i);
+        if (cartField.FieldType===20)   //IMAGE
+          res = `<img style="max-height:100px; max-width:100px; height:auto; width:auto;" src="${cartField.values[i].value}">`;
+        else {                           //Regular value
+          if (typeof cartField.values[i].value === "number"){
+            res = parseFloat(Math.round(cartField.values[i].value * 100) / 100).toFixed(2);
+          }
+          else
+            res = cartField.values[i].value;
+        }
+        return res;
+      }
+      let cartTemplate = () => {
+          var res = createCartHeader();
+          res = res + createCartRows();
+          return res;
+      }
+      let createFinalRowSums = () => {
+        var res = '<tr class="final-row">';
+        var colspan = 0;
+        totalQuantities = PDFObject.cart.find(field => field.ApiName === 'UnitsQuantity').values.reduce((a,b) => a + b.value,0);
+        var totalUnitsPrice= PDFObject.cart.find(field => field.ApiName === 'TotalUnitsPriceAfterDiscount').values.reduce((a,b) => a + b.value,0);
+        for (var i = 0 ; i <  PDFObject.cart.length ; i++){             //for every field in line
+          if (PDFObject.cart[i].ApiName === 'UnitsQuantity' || PDFObject.cart[i].ApiName === 'TotalUnitsPriceAfterDiscount'){
+            break;
+          }
+          colspan++;
+        }
+        res = res + `<td colspan=${colspan} style="border-bottom-width:  0px;border-left-width: 0px;"></td>`;
+        for(var i = colspan ; i < PDFObject.cart.length ; i++){
+          if (PDFObject.cart[i].ApiName === 'UnitsQuantity'){
+            res = res + `<td> ${parseFloat(Math.round(totalQuantities * 100) / 100).toFixed(2)} </td>`;
+          }
+          else if (PDFObject.cart[i].ApiName === 'TotalUnitsPriceAfterDiscount') {
+            res = res + `<td> ${parseFloat(Math.round(totalUnitsPrice * 100) / 100).toFixed(2)} </td>`;
+          }
+          else {
+            res = res + `<td style="border-bottom-width: 0px;"> </td>`;
+          }
+        }
+        res = res + '</tr>';
+        return res;
+      }
+      /*-------------END - PRINTING CART FUNCTIONS--------------*/
+      let logHeaderCanvasPoint = (e,id) => {
+          let rect = document.getElementById(id).getBoundingClientRect();
+          console.log('Header Canvas:',{X: e.clientX - rect.left, Y: e.clientY - rect.top, ID: id});
+      }
+      
+  
+      let printHeaderField = (field,Context) => {
+      //console.log(field);
+          let VALUESPACE = field.Layout.valueSpace;
+            if (field.FieldType === 13){			//if is a splitter
+              Context.fillStyle = 'rgb(241, 241, 242)';
+              Context.fillRect((field.Layout.X-15),(field.Layout.Y-25),1140,35);	
+              Context.font = field.Layout.font;			
+              Context.fillStyle = field.Layout.color;
+              Context.textAlign = field.Layout.textAlign;
+              Context.fillText(field.Title,field.Layout.X,field.Layout.Y);
+              }
+            else	{		// 
+            
+                Context.font = field.Layout.font;	
+                Context.fillStyle = field.Layout.color;
+              Context.textAlign = field.Layout.textAlign;
+              Context.fillText(field.Title,field.Layout.X,field.Layout.Y);
+              
+              Context.font = field.Layout.valueFont;		  	
+              Context.fillStyle = field.Layout.valueColor;
+              Context.textAlign = field.Layout.valueTextAlign;
+              if ( field.FieldType === 14 ){		// if is a ShipToAddress/BillToAddress field
+                  let heightBetweenValues = 25;
+                  let i = 0;
+                  let pre = field.ApiName === 'ShipToAddress' ? 'Ship' : 'Bill';
+                  field.value[pre+'ToStreet'] ? Context.fillText(field.value[pre+'ToStreet'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+                  field.value[pre+'ToCity'] ? Context.fillText(field.value[pre+'ToCity'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+                  field.value[pre+'ToZipCode'] ? Context.fillText(field.value[pre+'ToZipCode'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+                  field.value[pre+'ToState'] ? Context.fillText(field.value[pre+'ToState'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+                  field.value[pre+'ToCountry'] ? Context.fillText(field.value[pre+'ToCountry'],field.Layout.X + VALUESPACE, field.Layout.Y + (heightBetweenValues * i++)) : '';
+              }
+              else {
+                  field.value ? Context.fillText(field.value,field.Layout.X + VALUESPACE, field.Layout.Y ) : '';
+              }
+            }
+      }
+      /**
+      * Resizes the canvas to match the max UIControls fields' Layout.Y attribute.
+      * @param {UIControls} UIControls - Array of fields that respresents the fields and positions.
+      * @param {HTMLCanvasElement} canvas - The canvas.
+      * @param {HTMLCanvasContext} context - The canvas context.
+      */
+      let resizeCanvas = (UIControls, canvas, context) => {
+          let marginBottom = 25;
+          let newCanvasHeight = Math.max(...UIControls.map(field => field.Layout.Y));
+          var inMemCanvas = document.createElement('canvas');
+          var inMemCtx = inMemCanvas.getContext('2d');
+          inMemCanvas.width = canvas.width;
+          inMemCanvas.height = canvas.height;
+          inMemCtx.drawImage(canvas, 0, 0);
+          canvas.height = newCanvasHeight + marginBottom;
+          context.drawImage(inMemCanvas, 0, 0);
+      }
+      
+      /*---------------------MAIN-----------------------*/
+      var headerCanvas = document.getElementById("HeaderCanvas"),
+      headerContext = headerCanvas.getContext("2d"),
+      totalsBoxCanvas = document.getElementById("TotalsBoxCanvas"),
+      totalsBoxContext = totalsBoxCanvas.getContext("2d");
+      FooterCanvas = document.getElementById("FooterCanvas"),
+      FooterContext = FooterCanvas.getContext("2d");
+      for (let i = 0 ; i < PDFObject.header.length ; i ++){
+          printHeaderField(PDFObject.header[i],headerContext);
+      }
+      resizeCanvas(PDFObject.header, headerCanvas, headerContext);
+      document.getElementById("table-cart").innerHTML=`${cartTemplate()}`;
+      for (let i = 0 ; i < PDFObject.totalsbox.length ; i ++){
+          printHeaderField(PDFObject.totalsbox[i],totalsBoxContext);
+      }
+      resizeCanvas(PDFObject.totalsbox,totalsBoxCanvas,totalsBoxContext);
+      
+      /*---------------------END-MAIN-------------------*/
+      
+  </script>
+  </body>
+  </html>
