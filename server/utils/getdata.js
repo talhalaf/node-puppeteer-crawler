@@ -6,7 +6,40 @@ const puppeteer = require('puppeteer');
 //'X-Pepperi-ConsumerKey':'LkOCYs3cYPGqnA22TyfNO8qfotJkEL5c'
 
 //TODO: inserting into headers Authorization dinamically.
+let getTransactionDataByFields = (transactionId,token,UIControlFields)=> {
+    const fieldsString = UIControlFields.filter(UIControl => {
+        let hasSpaces = UIControl.ApiName.indexOf(" ");
+        if (UIControl.ApiName.length !== 0 
+            && UIControl.FieldType !== 13
+            && UIControl.FieldType !== 11
+            && UIControl.ApiName !== 'AccountLanguage'      //Failing validation, Bad ApiName
+            && UIControl.ApiName !== 'AccountCurrency'      //Failing validation, Bad ApiName
+            && UIControl.ApiName !== 'CatalogExpirationDate'
+            && hasSpaces === -1)  {
+            return UIControl;
+        }else {
+            console.log("fieldValue cannot be fetched:",UIControl.ApiName, "FieldType",UIControl.FieldType);
+        }
+    }).map(UIControl => UIControl.ApiName).join(',');
+    console.log("Fetchin...",fieldsString);
+    return new Promise((resolve,reject)=>{
+        request({
+            url: `https://api.pepperi.com/v1.0/transactions/${transactionId}?full_mode="true"&fields=${fieldsString}`,
+            json:true,
+            headers:{
+                'Authorization':`Basic ${token}`,
+                'X-Pepperi-ConsumerKey':'LkOCYs3cYPGqnA22TyfNO8qfotJkEL5c'
+            }
+        },(error,response,body)=>{
+           if(error || body.fault){
+                reject(body.fault.faultstring);
+           }
+           resolve(body);
+        });
+    });
+}
 let getTransactionData = (transactionId,token) => {
+    // console.log(token);
     return new Promise((resolve,reject)=>{
         request({
             url: `https://api.pepperi.com/v1.0/transactions/${transactionId}?full_mode="true"`,
@@ -91,6 +124,8 @@ let getPDFData = async (transactionId,token,UIControls) =>{
     let PDFObject = {};
 
     let transactionData = await getTransactionData(transactionId,token);
+    let transactionDataByFields = await getTransactionDataByFields(transactionId,token,UIControls.header);
+    console.log("transactionDataByFields:",transactionDataByFields);
     if (!transactionData)
         reject("bla bla");
     let lines = await getTransactionLines(transactionId,token);
@@ -166,7 +201,7 @@ let getPDFData = async (transactionId,token,UIControls) =>{
                 break;
                 default:{
                     PDFObject.fieldsNotFound.push(UIControl);
-                    console.log(UIControl);
+                    // console.log('Field not found:',UIControl);
                 }
             }
         }
